@@ -122,10 +122,6 @@ export default function App() {
               <div><strong>Phone:</strong> +27 600 000 000</div>
               <div><strong>Location:</strong> Cape Town, South Africa</div>
 
-              <div style={{ marginTop: 6 }}>
-                <a href="#" className="ghost">Schedule a call</a>
-              </div>
-
               <div className="social-icons">
                 {/* GitHub */}
                 <a href="#" aria-label="GitHub" className="icon">

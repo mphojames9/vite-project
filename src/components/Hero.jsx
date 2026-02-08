@@ -113,7 +113,7 @@ export default function Hero() {
   return (
     <section className="hero" id="home">
       <div>
-        <div className="eyebrow">Available for hire — Remote & Contract</div>
+        <div className="eyebrow">Available for Remote & Contract</div>
 
         <h1 className="typewriter">{typedText}</h1>
         <h2 className={`subtitle ${showSubtitle ? "visible" : ""}`}>
@@ -127,29 +127,16 @@ export default function Hero() {
 
         <div className="cta-row">
           <a className="btn" href="#projects">See Work</a>
-          <a className="ghost" href="#contact">Schedule a call</a>
         </div>
 
         <div className="skills reveal" id="skills">
-        </div>
-
-        <div className="socials">
-          <a href="#" title="Github" style={{ color: "var(--muted)", textDecoration: "none" }}>
-            GitHub
-          </a>
-          <a href="#" title="LinkedIn" style={{ color: "var(--muted)", textDecoration: "none" }}>
-            LinkedIn
-          </a>
-          <a href="#" title="Dribbble" style={{ color: "var(--muted)", textDecoration: "none" }}>
-            Dribbble
-          </a>
         </div>
       </div>
 
       <aside className="hero-card">
         <div ref={heroImage} className="hero-image parallax img-animate">
           <div className="meta-pill">
-            <strong>Featured:</strong> Analytics Dashboard — Product & Frontend
+            <strong>Featured:</strong>Product & Frontend
           </div>
         </div>
 

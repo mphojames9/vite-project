@@ -36,11 +36,6 @@
     box-sizing: border-box;
 }
 
-html,
-body {
-    height: 100%;
-}
-
 body {
     margin: 0;
     background: linear-gradient(180deg, var(--bg), #071026 60%);
@@ -48,6 +43,7 @@ body {
     font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    background-attachment: fixed;
 }
 
 /* Main wrapper — increase padding on mobile via media queries below */
@@ -55,6 +51,7 @@ body {
     max-width: var(--maxw);
     margin: 0 auto;
     padding: 28px;
+    overflow: hidden;
 }
 
 /* -------------------------
@@ -167,13 +164,15 @@ nav a {
     gap: 38px;
     align-items: center;
     margin-top: 18px;
+    padding: 15px;
 }
 
 /* eyebrow, headings and lead preserved */
 .eyebrow {
     color: var(--accent2);
     font-weight: 700;
-    font-size: 13px;
+    font-size: 15px;
+    margin: 15px 0;
 }
 
 h1 {
@@ -189,7 +188,7 @@ h1 {
 }
 
 .cta-row {
-    margin-top: 18px;
+    margin-top: 25px;
     display: flex;
     gap: 12px;
     align-items: center;
@@ -211,17 +210,24 @@ h1 {
     border: 1px solid rgba(255, 255, 255, 0.04);
     box-shadow: 0 12px 40px rgba(2, 6, 23, 0.6);
     overflow: hidden;
+    width: 350px;
+    height: 400px;
 }
+
+
 
 .hero-image {
     height: 520px;
     border-radius: 12px;
-    background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1400&q=80&auto=format&fit=crop');
+    background-image: url('../src/asserts/profile.png');
     background-size: cover;
     background-position: center;
     position: relative;
     transform: translateZ(0);
     will-change: transform;
+        width: 315px;
+    height: 365px;
+
 }
 
 .meta-pill {
@@ -238,10 +244,34 @@ h1 {
    REVEAL & SLIDE
    ------------------------- */
 .reveal {
+    margin: 25px auto;
     opacity: 0;
     transform: translateY(22px);
     transition: transform .7s cubic-bezier(.2, .9, .2, 1), opacity .6s cubic-bezier(.2, .9, .2, 1);
 }
+
+#services {
+    padding: 25px 15px;
+}
+
+#projects {
+    padding: 35px 15px;
+}
+
+#projects h2 {
+    padding: 35px 15px;
+}
+
+.caseStudy {
+    min-height: 200px;
+    height: fit-content;
+}
+
+.caseStudy a.btn {
+    font-size: 14px;
+    color: white;
+}
+
 
 .reveal.visible {
     opacity: 1;
@@ -333,14 +363,6 @@ h1 {
     background: linear-gradient(135deg, var(--accent1), var(--accent2));
     box-shadow: 0 0 14px var(--accent1);
     outline: none;
-}
-
-/* make icons slightly larger on small screens for touch */
-@media (max-width: 520px) {
-    .icon {
-        width: 52px;
-        height: 52px;
-    }
 }
 
 /* -------------------------
@@ -441,6 +463,13 @@ h1 {
     border: 1px solid rgba(255, 255, 255, 0.03);
 }
 
+@media (max-width:700px) {
+    .cta-banner {
+        flex-direction: column;
+        height: 150px;
+    }
+}
+
 /* -------------------------
    MODAL (case study)
    ------------------------- */
@@ -480,7 +509,7 @@ h1 {
 .testimonials {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 14px;
+    gap: 18px;
     margin-top: 18px;
 }
 
@@ -497,8 +526,12 @@ h1 {
 .pricing {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 14px;
+    gap: 25px;
     margin-top: 18px;
+}
+
+#pricing h2 {
+    margin: 40px 0;
 }
 
 .plan {
@@ -529,7 +562,7 @@ h1 {
 .contact {
     display: grid;
     grid-template-columns: 1fr 380px;
-    gap: 18px;
+    gap: 25px;
     margin-top: 24px;
 }
 
@@ -552,6 +585,17 @@ h1 {
     background: linear-gradient(90deg, var(--accent1), var(--accent2));
     font-weight: 800;
     color: #021122;
+}
+
+.card.contact-aside {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card.contact-aside  a {
+    text-decoration: none;
+    color: var(--text);
 }
 
 /* -------------------------
@@ -602,6 +646,9 @@ footer {
     #mobileMenu {
         width: calc(100% - 32px);
         margin: 10px auto 0;
+        position: fixed;
+        background: #071026;
+        z-index: 999;
     }
 
     /* improve link hit area */
@@ -612,13 +659,6 @@ footer {
         border-radius: 10px;
         width: 100%;
         text-align: left;
-    }
-
-    .hero {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        margin-top: 14px;
-        text-align: center;
     }
 
     .lead {
@@ -731,6 +771,11 @@ footer {
     /* keep layout stable */
 }
 
+#faq h2, #blog h2 {
+    margin-top: 50px ;
+
+}
+
 
 
 @keyframes blink {
@@ -762,10 +807,36 @@ footer {
 
     .hero {
         grid-template-columns: 1fr;
+        gap: 20px;
+        margin-top: 14px;
+        text-align: center;
     }
 
     .hero-image {
-        height: 420px;
+        height: 365px;
+        width: 100%;
+    }
+
+    .hero-card {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+        border-radius: 18px;
+        padding: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        box-shadow: 0 12px 40px rgba(2, 6, 23, 0.6);
+        overflow: hidden;
+        width: 100%;
+        max-width: 420px;
+        margin: 0 auto;
+    }
+
+    .lead {
+        margin: 0 auto;
+
+    }
+
+    .cta-row {
+        display: flex;
+        justify-content: center;
     }
 }
 
@@ -801,7 +872,6 @@ footer {
     }
 
     .hero-image {
-        height: 320px;
         border-radius: 12px;
     }
 
@@ -811,11 +881,7 @@ footer {
         padding: 0 8px;
     }
 
-    /* contact: single column, full width */
-    .contact {
-        grid-template-columns: 1fr;
-        gap: 18px;
-    }
+
 
     /* projects: tighter but single column stacking */
     .projects-grid {
@@ -872,6 +938,61 @@ footer {
     }
 }
 
+/* -------------------------
+   Accessibility focus
+   ------------------------- */
+:focus {
+    outline: 1px solid var(--accent2);
+    outline-offset: 1px;
+}
+
+/* -------------------------
+   Small legacy responsive fallbacks (preserve existing)
+   ------------------------- */
+@media (max-width: 980px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+
+        .contact {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    #contact h2 {
+        text-align: center;
+    }
+
+}
+
+@media (max-width: 640px) {
+    nav ul {
+        display: none;
+    }
+
+
+}
+
+/* make icons slightly larger on small screens for touch */
+@media (max-width: 520px) {
+    .icon {
+        width: 52px;
+        height: 52px;
+    }
+
+    .hero-card {
+        height: 380px;
+        padding: unset;
+    }
+
+    .hero-image {
+        height: inherit;
+    }
+}
+
 /* extra-small screens (very narrow phones) */
 @media (max-width: 380px) {
     .wrap {
@@ -891,42 +1012,16 @@ footer {
         height: 48px;
     }
 
+    .hero-card {
+        height: 260px;
+        padding: unset;
+    }
+
     .hero-image {
         height: 260px;
     }
 
     .project {
         height: 180px;
-    }
-}
-
-/* -------------------------
-   Accessibility focus
-   ------------------------- */
-:focus {
-    outline: 2px dashed var(--accent2);
-    outline-offset: 4px;
-}
-
-/* -------------------------
-   Small legacy responsive fallbacks (preserve existing)
-   ------------------------- */
-@media (max-width: 980px) {
-    .hero {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-image {
-        height: 420px;
-    }
-}
-
-@media (max-width: 640px) {
-    nav ul {
-        display: none;
-    }
-
-    .contact {
-        grid-template-columns: 1fr;
     }
 }

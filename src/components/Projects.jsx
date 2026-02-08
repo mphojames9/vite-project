@@ -155,7 +155,7 @@ export default function Projects() {
 
       </div>
 
-      <div className="cta-banner">
+      <div className="cta-banner caseStudy">
         <div>
           <strong>Want a case study like this?</strong>
           <div className="muted">

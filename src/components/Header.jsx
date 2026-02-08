@@ -127,9 +127,8 @@ export default function Header() {
 
         {/* ACTIONS (desktop) */}
         <div className="actions desktop-nav">
-          <button className="ghost" id="themeToggle">Toggle</button>
-          <a className="ghost" href="/resume.pdf" download id="downloadCV">Download CV</a>
           <a className="btn" href="#contact">Hire Me</a>
+          <button className="ghost" id="themeToggle">Toggle</button>
         </div>
       </div>
 
@@ -148,7 +147,6 @@ export default function Header() {
         <div style={{ height: 8 }} />
 
         <button className="ghost" id="themeToggleMobile">Toggle Theme</button>
-        <a className="ghost" href="/resume.pdf" download>Download CV</a>
         <a className="btn" href="#contact" onClick={onNavLink}>Hire Me</a>
       </div>
     </>
