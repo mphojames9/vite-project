@@ -1,10 +1,16 @@
 import React from 'react'
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGlobe } from "react-icons/fa";
 
 // FIXED: Correct imports for all components  
 import Header from './components/Header.jsx'
 import Hero from './components/Hero.jsx'
 import Projects from './components/Projects.jsx'
 import ContactForm from './components/ContactForm.jsx'
+import About from './components/About.jsx'
+import WhatIDoBest from './components/WhatIDoBest.jsx'
+import TwoRowShowcase from './components/TwoRowShowcase.jsx'
+import WhyWorkWithMe from './components/WhyWorkWithMe.jsx'
+import FAQSectio from './components/FAQSectio.jsx'
 
 export default function App() {
   return (
@@ -13,7 +19,6 @@ export default function App() {
 
       <main>
         <Hero />
-
         <section id="services" className="reveal">
           <h2>Services</h2>
           <div className="services">
@@ -39,7 +44,13 @@ export default function App() {
           </div>
         </section>
 
+        <About />
+        <WhatIDoBest />
+        <TwoRowShowcase />
+
         <Projects />
+
+        <WhyWorkWithMe />
 
         <section id="testimonials" className="reveal">
           <h2>Testimonials</h2>
@@ -96,20 +107,7 @@ export default function App() {
           </div>
         </section>
 
-        <section id="faq" className="reveal">
-          <h2>FAQ</h2>
-          <div className="faq">
-            <div className="faq-item slide-left">
-              <strong>How long are projects?</strong>
-              <div className="muted">Most projects 2–8 weeks depending on scope.</div>
-            </div>
-
-            <div className="faq-item slide-right">
-              <strong>Payment?</strong>
-              <div className="muted">Deposit + milestone payments.</div>
-            </div>
-          </div>
-        </section>
+        <FAQSectio />
 
         <section id="contact" className="reveal">
           <h2>Contact</h2>
@@ -117,61 +115,86 @@ export default function App() {
           <div className="contact">
             <ContactForm />
 
-            <aside className="card contact-aside">
-              <div><strong>Email:</strong> <a href="mailto:hello@youremail.com">hello@youremail.com</a></div>
-              <div><strong>Phone:</strong> +27 600 000 000</div>
-              <div><strong>Location:</strong> Cape Town, South Africa</div>
-
-              <div className="social-icons">
-                {/* GitHub */}
-                <a href="#" aria-label="GitHub" className="icon">
-                  <svg width="22" height="22" viewBox="0 0 24 24">
-                    <path
-                      fill="currentColor"
-                      d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.4-3.9-1.4-.5-1.2-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1 1.5-.7 1.7-1 .1-.7.4-1.1.7-1.4-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.4 1.2-3.3-.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.4 1.2 1-.3 2-.4 3-.4s2 .1 3 .4c2.4-1.6 3.4-1.2 3.4-1.2.6 1.7.2 3 .1 3.3.8.9 1.2 2 1.2 3.3 0 4.5-2.7 5.5-5.3 5.8.4.3.8 1 .8 2.1v3.1c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.65 18.35.5 12 .5z"
-                    />
-                  </svg>
-                </a>
-
-                {/* LinkedIn */}
-                <a href="#" aria-label="LinkedIn" className="icon">
-                  <svg width="22" height="22" viewBox="0 0 24 24">
-                    <path
-                      fill="currentColor"
-                      d="M4.98 3.5c0 1.38-1.12 2.5-2.5 2.5S0 4.88 0 3.5 1.12 1 2.48 1s2.5 1.12 2.5 2.5zM.5 23.5h4V7.5h-4v16zM8.5 7.5v16h4v-8.6c0-2.1.7-3.5 2.7-3.5 1.9 0 2.3 1.4 2.3 3.5v8.6h4v-9.7c0-4.3-2.1-6.3-5.1-6.3-2.3 0-3.3 1.3-3.9 2.3h-.1V7.5h-4z"
-                    />
-                  </svg>
-                </a>
-
-                {/* Twitter (X) */}
-                <a href="#" aria-label="Twitter/X" className="icon">
-                  <svg width="22" height="22" viewBox="0 0 24 24">
-                    <path
-                      fill="currentColor"
-                      d="M23 2.9c-.8.4-1.6.6-2.5.8.9-.5 1.6-1.4 1.9-2.4-.9.5-1.9.9-3 1.1C18.6 1.5 17.3 1 16 1c-2.7 0-4.9 2.3-4.9 5 0 .4 0 .8.1 1.1C7.6 6.9 4.2 4.9 1.7 1.9c-.4.7-.6 1.4-.6 2.3 0 1.6.8 3 2.1 3.8-.7 0-1.4-.2-2-.5v.1c0 2.3 1.6 4.3 3.7 4.8-.4.1-.9.2-1.4.2-.3 0-.6 0-.9-.1.6 2 2.4 3.4 4.5 3.4-1.6 1.3-3.7 2.1-6 2.1H0C2.1 21 4.6 22 7.3 22c8.8 0 13.7-7.5 13.7-14 0-.2 0-.4 0-.5C22 6.1 22.6 5.4 23 4.6c-.8.4-1.6.6-2.5.8 1-.6 1.7-1.4 2.5-2.5z"
-                    />
-                  </svg>
-                </a>
-
+            <aside className="contact-aside card">
+              <h3>Contact Me</h3>
+              <div className="contact-item">
+                <FaEnvelope className="contact-icon" />
+                <div>
+                  <strong>Email:</strong>{" "}
+                  <a href="mailto:hello@youremail.com">hello@youremail.com</a>
+                </div>
               </div>
-
+              <div className="contact-item">
+                <FaPhone className="contact-icon" />
+                <div>
+                  <strong>Phone:</strong> +27 600 000 000
+                </div>
+              </div>
+              <div className="contact-item">
+                <FaMapMarkerAlt className="contact-icon" />
+                <div>
+                  <strong>Location:</strong> Cape Town, South Africa
+                </div>
+              </div>
+              <div className="contact-item">
+                <FaGlobe className="contact-icon" />
+                <div>
+                  <strong>Availability:</strong> Worldwide (Remote)
+                </div>
+              </div>
             </aside>
           </div>
         </section>
       </main>
+      <footer className="footer">
+        <div className="footer-inner">
 
-      <footer>
-        <div style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          gap: 12,
-          flexWrap: 'wrap'
-        }}>
-          <div>© <span id="year"></span> Your Name</div>
-          <div className="muted">Made with care • Design + Code</div>
+          {/* Brand */}
+          <div className="footer-brand">
+            <h3>Your Name</h3>
+            <p className="muted">
+              Design · Frontend · Systems
+            </p>
+          </div>
+
+          {/* Navigation */}
+          <nav className="footer-nav">
+            <a href="#services">Services</a>
+            <a href="#projects">Projects</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#contact">Contact</a>
+          </nav>
+
+          {/* Social */}
+          <div className="footer-social">
+            <a href="#" aria-label="GitHub" className="social-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.4-3.9-1.4-.5-1.2-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1 1.5-.7 1.7-1 .1-.7.4-1.1.7-1.4-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.4 1.2-3.3-.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.4 1.2 1-.3 2-.4 3-.4s2 .1 3 .4c2.4-1.6 3.4-1.2 3.4-1.2.6 1.7.2 3 .1 3.3.8.9 1.2 2 1.2 3.3 0 4.5-2.7 5.5-5.3 5.8.4.3.8 1 .8 2.1v3.1c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.65 18.35.5 12 .5z" />
+              </svg>
+            </a>
+
+            <a href="#" aria-label="LinkedIn" className="social-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M4.98 3.5c0 1.38-1.12 2.5-2.5 2.5S0 4.88 0 3.5 1.12 1 2.48 1s2.5 1.12 2.5 2.5zM.5 23.5h4V7.5h-4v16zM8.5 7.5v16h4v-8.6c0-2.1.7-3.5 2.7-3.5 1.9 0 2.3 1.4 2.3 3.5v8.6h4v-9.7c0-4.3-2.1-6.3-5.1-6.3-2.3 0-3.3 1.3-3.9 2.3h-.1V7.5h-4z" />
+              </svg>
+            </a>
+
+            <a href="#" aria-label="Twitter/X" className="social-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M18.9 2H22l-7.4 8.5L23 22h-6.6l-5.2-6.4L5.7 22H2.6l7.9-9L1 2h6.8l4.7 5.8L18.9 2z" />
+              </svg>
+            </a>
+          </div>
+
+        </div>
+
+        {/* Bottom bar */}
+        <div className="footer-bottom">
+          <span>© {new Date().getFullYear()} Your Name</span>
+          <span className="muted">Built with care • Design + Code</span>
         </div>
       </footer>
     </div>
+
   );
 }

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
+
 export default function Hero() {
   const heroImage = useRef(null);
 
@@ -86,7 +87,7 @@ export default function Hero() {
     }, observerOpts);
 
     const targets = document.querySelectorAll(
-      ".reveal, .slide-left, .slide-right, .project, .hero-card, .testimonial, .plan, .blog, .faq-item"
+      ".reveal, .slide-left, .slide-right, .project, .hero-card, .testimonial, .plan, .blog, .faq-item, .fp-row, .fp-image"
     );
 
     targets.forEach((el) => slideObserver.observe(el));
@@ -113,7 +114,7 @@ export default function Hero() {
   return (
     <section className="hero" id="home">
       <div>
-        <div className="eyebrow">Available for Remote & Contract</div>
+        <div className="eyebrow">Available for Remote, Contract & Freelance Work</div>
 
         <h1 className="typewriter">{typedText}</h1>
         <h2 className={`subtitle ${showSubtitle ? "visible" : ""}`}>
@@ -121,9 +122,12 @@ export default function Hero() {
         </h2>
 
         <p className="lead">
-          I design and build high-performance interfaces and delightful experiences. I focus on
-          accessible, maintainable systems that scale.
+          I design and build practical, high-impact web applications that solve real problems.
+          My focus is on accessible, lightweight, and scalable systems especially tools that make digital
+           work easier for people who don’t have access to expensive software.
         </p>
+
+        <p><strong>Founder of RemoPDF</strong>, a free web-based document utility used to manage PDFs directly in the browser.</p>
 
         <div className="cta-row">
           <a className="btn" href="#projects">See Work</a>

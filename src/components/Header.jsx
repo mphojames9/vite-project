@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { ThemeSlider } from "./ThemeSlider";
 import logo from "../asserts/logo.png"
 
 export default function Header() {
@@ -64,25 +65,7 @@ export default function Header() {
     setMenuOpen(false);
   };
 
-  // Theme toggle (keeps existing DOM approach for your code)
-  useEffect(() => {
-    const themeToggle = document.getElementById("themeToggle");
-    const themeToggleMobile = document.getElementById("themeToggleMobile");
-    const handler = () => {
-      const root = document.documentElement;
-      const cur = root.getAttribute("data-theme") || "dark";
-      const next = cur === "dark" ? "light" : "dark";
-      root.setAttribute("data-theme", next);
-    };
 
-    if (themeToggle) themeToggle.addEventListener("click", handler);
-    if (themeToggleMobile) themeToggleMobile.addEventListener("click", handler);
-
-    return () => {
-      if (themeToggle) themeToggle.removeEventListener("click", handler);
-      if (themeToggleMobile) themeToggleMobile.removeEventListener("click", handler);
-    };
-  }, []);
 
   // keyboard accessibility: close menu on Escape
   useEffect(() => {
@@ -128,7 +111,7 @@ export default function Header() {
         {/* ACTIONS (desktop) */}
         <div className="actions desktop-nav">
           <a className="btn" href="#contact">Hire Me</a>
-          <button className="ghost" id="themeToggle">Toggle</button>
+          <ThemeSlider id="themeToggleDesktop" />
         </div>
       </div>
 
@@ -146,7 +129,7 @@ export default function Header() {
 
         <div style={{ height: 8 }} />
 
-        <button className="ghost" id="themeToggleMobile">Toggle Theme</button>
+        <ThemeSlider id="themeToggleMobile" />
         <a className="btn" href="#contact" onClick={onNavLink}>Hire Me</a>
       </div>
     </>
